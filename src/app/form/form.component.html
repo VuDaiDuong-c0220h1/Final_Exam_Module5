@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="alert alert-success" role="alert" *ngIf="isShowSuccess">
+    {{ message }}
+  </div>
+
+  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    <input type="hidden" formControlName="id"/>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input type="text" class="form-control" id="title" formControlName="title">
+    </div>
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input type="text" class="form-control" id="author" formControlName="author">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea rows="3" type="text" class="form-control" id="description" formControlName="description"></textarea>
+    </div>
+    <div>
+      <button type="submit" class="float-right btn btn-primary">Save</button>
+    </div>
+    <div>
+      <button type="reset" class="float-right btn btn-primary" (click)="backToIndex()">Back</button>
+    </div>
+  </form>
+</div>
+

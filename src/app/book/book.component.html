@@ -1,0 +1,27 @@
+<div class="container">
+  <table class="table table-hover table-dark">
+    <thead>
+    <tr>
+      <td>#</td>
+      <td>Tên sách</td>
+      <td>Tác giả</td>
+      <td colspan="2">Action</td>
+    </tr>
+    </thead>
+    <tr *ngFor="let book of bookList; index as i">
+      <td>{{i + 1}}</td>
+      <td><a [routerLink]="['/card',book.id]">{{book.title}}</a></td>
+      <td>{{book.author}}</td>
+      <td><a class="float-right btn btn-primary" [routerLink]="['/form',book.id]"> Sửa </a></td>
+      <td><a class="float-right btn btn-danger" (click)="deleteProduct(book.id)"> Xóa </a></td>
+    </tr>
+    <tr>
+      <td colspan="3">Có {{numberOfBooks}} cuốn sách</td>
+      <td colspan="2">
+        <button type="button" class="float-right btn btn-primary" routerLink="/form">Thêm sách mới</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
